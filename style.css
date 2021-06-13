@@ -253,13 +253,3 @@ audio {
 #forward img {
   width: 50px !important;
 }
-
-#fb-root > div.fb_dialog.fb_dialog_advanced.fb_shrink_active {
-  right: initial !important;
-  left: 18pt;
-  z-index: 9999999 !important;
-}
-.fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
-  right: initial !important;
-  left: 18pt !important;
-}

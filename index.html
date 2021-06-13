@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css?family=Archivo:400,700i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./style.css" />
-  <link rel="stylesheet" type="text/css" href="./media.css" />
   <title>Document</title>
 </head>
 
@@ -86,22 +85,29 @@
   <div class="playerwrapper blue" id="addHere">
   </div>
 
-  <div class="fb-customerchat" page_id="<101359518719268>" minimized="true">
+  <!-- Messenger Chat Plugin Code -->
+  <div id="fb-root"></div>
+
+  <!-- Your Chat Plugin code -->
+  <div id="fb-customer-chat" class="fb-customerchat">
   </div>
+
   <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "101359518719268");
+    chatbox.setAttribute("attribution", "biz_inbox");
     window.fbAsyncInit = function () {
       FB.init({
-        appId: '912333495590130',
-        autoLogAppEvents: true,
         xfbml: true,
-        version: 'v2.11'
+        version: 'v11.0'
       });
     };
+
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
+      if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
