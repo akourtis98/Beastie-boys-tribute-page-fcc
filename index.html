@@ -85,29 +85,23 @@
 
   <div class="playerwrapper blue" id="addHere">
   </div>
-  <!-- Messenger Chat Plugin Code -->
-  <div id="fb-root"></div>
 
-  <!-- Your Chat Plugin code -->
-  <div id="fb-customer-chat" class="fb-customerchat">
+  <div class="fb-customerchat" page_id="<101359518719268>" minimized="true">
   </div>
-
   <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "101359518719268");
-    chatbox.setAttribute("attribution", "biz_inbox");
     window.fbAsyncInit = function () {
       FB.init({
+        appId: '912333495590130',
+        autoLogAppEvents: true,
         xfbml: true,
-        version: 'v11.0'
+        version: 'v2.11'
       });
     };
-
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
+      if (d.getElementById(id)) {return;}
       js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
