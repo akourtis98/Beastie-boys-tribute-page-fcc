@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Archivo:400,700i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="./media.css" />
   <title>Document</title>
 </head>
 
@@ -77,19 +78,28 @@
   </div>
   <br>
 
-
   <div class="wrapper">
-    <div style="text-align: center;" id="renderhere">
-      <div class="box orange">1</div>
-      <div class="box blue">2</div>
-      <div id="showhere"> </div>
-      <div class="box red">4</div>
-      <div class="box red">4</div>
+    <div id="renderhere">
     </div>
   </div>
+
+  <div class="playerwrapper blue" id="addHere">
+  </div>
+
 </body>
 <script>
+  const INDEX = 0;
   let images;
+  let songs;
+
+  async function getSongs() {
+    songs = await fetch('./songs.json')
+      .then(response => response.json())
+      .catch(err => console.log(error));
+
+    return songs;
+  };
+
   async function getImages() {
     images = await fetch('./images.json')
       .then(response => response.json())
@@ -111,14 +121,21 @@
     htmlElem.innerHTML = "<div id='" + image.id + "' style='background: url(" + image.src + ") no-repeat center; padding: 20px; background-size: 100% 100%; display: flex; justify-content: space-between; align-items: center;' class='trans big'><div onclick='goleft()' class='button__arrow button button__arrow--left'  style='float: left;'></div><div onclick = 'goright()' style='float: right' class='button__arrow button button__arrow--right'></div>";
   }
 
-  function render(images) {
+  function addSongHtml(song) {
+  }
+
+  function renderSong(song) {
+    const addHereElem = document.getElementById("addHere");
+    addHereElem.innerHTML = "<div id='generalwrapper'><div id='logowrapper'> <img src=''./ favicon.png' id='logo'> </div> <div class='details'>" + song.name + " | " + song.album + " | " + song.releasedate + " <br><br> <div> <audio controls> <source src=" + song.src + " type='audio/mpeg'></audio></div></div><div onclick='nextSong()' class='music-control__forward' id='forward'><img src='https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/forward.svg'></div></div></div>";
+    const logoElem = document.getElementById("logowrapper");
+    logoElem.innerHTML = " <img src=" + song.thumbnail + " id='logo' alt='thumbnail'> ";
+  }
+
+  function render(image) {
     let htmlElem = document.getElementById("renderhere");
-    images.forEach((image, index) => {
-      if (index == 3) {
-        addHtml(htmlElem, image);
-        displayWithTransition(image.id)
-      }
-    })
+
+    addHtml(htmlElem, image);
+    displayWithTransition(image.id)
   }
 
   function timeout(ms) {
@@ -127,21 +144,35 @@
 
   async function init() {
     await getImages();
+    await getSongs();
+
     if (images != null) {
-      render(images);
+      console.log(images[INDEX])
+      render(images[INDEX]);
     }
+
+    if (songs != null) {
+      console.log(songs[INDEX])
+      renderSong(songs[INDEX]);
+    }
+  }
+
+  function nextSong() {
+    let song = songs.pop();
+    songs.unshift(song);
+    renderSong(songs[INDEX]);
   }
 
   function goleft() {
     let firstimage = images.pop();
     images.unshift(firstimage);
-    render(images);
+    render(images[INDEX]);
   }
 
   function goright() {
     let lastimage = images.shift();
-    images.push(lastimage)
-    render(images);
+    images.push(lastimage);
+    render(images[INDEX]);
   }
 
   init();
