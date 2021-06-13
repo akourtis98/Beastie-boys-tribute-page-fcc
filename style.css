@@ -1,6 +1,10 @@
 .landing {
   height: 100vh;
-  background-image: url("./beastie-boys-facebook.jpg");
+  background: url("./beastie-boys-facebook.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-position: center;
   margin-bottom: 47px;
@@ -12,32 +16,35 @@
 }
 
 .layer {
-    background-color: rgba(51, 5, 15, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  background-color: rgba(51, 5, 15, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-p {
-  width: 600px;
-  margin: 0 auto 20px;
+.text {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text p {
+  margin: 15px;
+  padding: 10px;
   word-spacing: 2.5px;
-  font-family: 'Montserrat', sans-serif;
-
+  font-family: "Montserrat", sans-serif;
 }
-html, body{
+
+html,
+body {
+  font-size: 1em;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-.article{
-  margin-bottom: 50px;
-}
-
-.footer {
+footer {
+  font-family: "Montserrat", sans-serif;
   position: relative;
   right: 0;
   bottom: 0;
@@ -47,69 +54,127 @@ html, body{
   text-align: center;
 }
 
-.headings{
-  font-family: 'Archivo', sans-serif;
+.headings {
+  font-family: "Archivo", sans-serif;
   color: white;
-  margin: 10px auto;
-  font-size: 30px;
   z-index: 1;
 }
 
-.cards{
-  display: flex;
-  justify-content: center;
+.headings h1 {
+  font-size: 4em;
+}
+
+.headings h3 {
+  font-size: 1.5em;
 }
 
 .card {
-	width: 430px;
-  height: 330px;
+  width: auto;
+  height: auto;
   display: inline-block;
-  margin: 2%;
-  border-radius: 5px;
-	background-color: white;
-  transition: .3s ease-out;
-	box-shadow: 0px 5px 20px #555;
+  margin: 20px;
+  background-color: white;
+  transition: 0.2s ease-out;
+  box-shadow: 0px 5px 20px #efefef;
 }
 
-.vid{
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 88%;
-  transition: .3s ease-out;
-  background-color: black;
-}
-
-.card:hover{
+.card:hover {
+  box-shadow: 0px 5px 20px #d4d4d4;
   transform: scale(1.014);
 }
 
-ul {
-  width: auto;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
+.card p {
+  margin: 12px 05px auto;
 }
 
-ul li {
-  float: left;
-  list-style: none;
-  margin-right: 1rem;
-}
-
-.card p{
-  margin:12px 05px auto;;
-}
-
-.copyright{
+.copyright {
   padding-top: 19px;
 }
 
-.desc p{
-  font-size: 16.5px;
+iframe {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 88%;
+  transition: 0.3s ease-out;
+  background-color: black;
 }
 
-.article p{
-  font-size: 19px;
+@media only screen and (max-width: 650px) {
+  p {
+    margin: 10px;
+  }
 }
 
+div {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.trans {
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.big {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.button {
+  margin: 80px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.button__arrow {
+  height: 30px;
+  width: 30px;
+}
+
+.button__arrow--right:hover {
+  border-right: 2px solid rgb(255, 255, 255, 1);
+  border-top: 2px solid rgba(255, 255, 255, 1);
+}
+
+.button__arrow--left:hover {
+  border-left: 2px solid rgba(255, 255, 255, 1);
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+.button__arrow--right {
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -ms-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  transform: translateX(-25%) rotate(45deg);
+}
+
+.button__arrow--left {
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -ms-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  transform: translateX(25%) rotate(45deg);
+}
+
+#renderhere {
+  width: 100vw;
+  height: 100vh;
+}
